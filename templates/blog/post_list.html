@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+{%extends 'blog/base.html'%}
+{%block title %}Micropyramid Pvt Ltd{%endblock%}
+{%block content%}
+ <h1>Micropyramid</h1>
+ {%for post in post_list %}
+   <h2> <a href="{{post.get_absolute_url}}">{{post.title}}</a> </h2>
+   <p id='date'>Published on {{post.publish}} by {{post.author|title}}</p>
+   {{post.body|truncatewords:30|linebreaks}}
+{%endfor%}
+{%endblock%}
